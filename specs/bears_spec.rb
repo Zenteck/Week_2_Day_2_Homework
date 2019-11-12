@@ -1,17 +1,24 @@
 require('minitest/autorun')
 require('minitest/rg')
-require_relative('../fish')
-require_relative('../rivers')
-require_relative('../bears')
+require_relative('../fish.rb')
+require_relative('../rivers.rb')
+require_relative('../bears.rb')
 
 class BearTest < MiniTest::Test
 
   def setup()
 
+    @fish1 = Fish.new("Apollo")
+    @fish2 = Fish.new("Boomer")
+    @fish3 = Fish.new("Helo")
+    @fish4 = Fish.new("Hotdog")
+    @fish5 = Fish.new("Husker")
+    @fish6 = Fish.new("Starbuck")
+    @all_fish = [@fish1, @fish2, @fish3, @fish4, @fish5, @fish6]
+    @river = River.new("Tay", @all_fish)
     @bear1 = Bear.new("Jasper", :black)
     @bear2 = Bear.new("Neli", :grizzly)
 
-    @river = River.new("Tay", @all_fish)
   end
 
   def test_bear_name
@@ -26,15 +33,27 @@ class BearTest < MiniTest::Test
     assert_equal([], @bear2.stomach)
   end
 
-  def test_eat_fish
-    fish = Fish.new("Agamemnon")
-    @bear2.stomach << fish
-    assert_equal("Agamemnon", @bear2.stomach)
+  # def test_eat_fish
+  #   fish = @fish1.name
+  #   @bear2.stomach.push(fish)
+  #   assert_equal(["Apollo"], @bear2.stomach)
+  # end
+  #I am eating the fish's name
+
+  # def test_eat_fish
+  #   @bear2.eat_fish
+  #   assert_equal(["Apollo"], @bear2.stomach)
+  # end
+
+  def test_eat_fish()
+    @bear1.eat_fish(@river.remove_random_fish)
+    assert_equal(1, @bear1.food_count)
+    assert_equal(5, @river.count_fish)
+    #Apparently this needed all the fish defined here to....
   end
 
-  def test_eat_fish2
-    fish = @river.catch_random_fish
-    p fish
+  def test_bear_roar
+    assert_equal("Rargh!", @bear1.bear_roar)
   end
 
 

@@ -7,6 +7,7 @@ require_relative('../rivers')
 class RiverTest < MiniTest::Test
 
   def setup()
+
     @fish1 = Fish.new("Apollo")
     @fish2 = Fish.new("Boomer")
     @fish3 = Fish.new("Helo")
@@ -25,9 +26,10 @@ class RiverTest < MiniTest::Test
     assert_equal(6, @river.count_fish)
   end
 
-  def test_catch_random_fish()
-    @river.catch_random_fish()
+  def test_remove_random_fish()
+    @river.remove_random_fish()
     assert_equal(5, @river.count_fish())
+    # p @all_fish It works!
   end
 
 end

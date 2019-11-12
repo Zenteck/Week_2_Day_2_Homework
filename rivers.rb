@@ -11,8 +11,8 @@ class River
     return @fish.size
   end
 
-  def catch_random_fish
-    return @fish.shuffle!.delete_at(0)
+  def remove_random_fish
+    @fish.shuffle!.delete_at(0)
   end
 
 end

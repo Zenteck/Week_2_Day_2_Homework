@@ -8,6 +8,12 @@ class Bear
     @stomach = []
   end
 
-  
+  def check_bear_stomach
+    return @stomach.size
+  end
+
+  def eat_fish(catch)
+    @stomach << catch
+  end
 
 end

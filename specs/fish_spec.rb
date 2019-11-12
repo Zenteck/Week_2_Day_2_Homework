@@ -11,7 +11,7 @@ class FishTest < MiniTest::Test
   end
 
   def test_fish_name
-    assert_equal("Showboat", @fish.fish_name)
+    assert_equal("Showboat", @fish.name)
   end
 
 

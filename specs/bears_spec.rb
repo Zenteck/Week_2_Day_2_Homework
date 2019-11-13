@@ -45,11 +45,14 @@ class BearTest < MiniTest::Test
   #   assert_equal(["Apollo"], @bear2.stomach)
   # end
 
+  #Apparently these needed all the fish defined here to....
+
   def test_eat_fish()
     @bear1.eat_fish(@river.remove_random_fish)
     assert_equal(1, @bear1.food_count)
     assert_equal(5, @river.count_fish)
-    #Apparently this needed all the fish defined here to....
+    # assert_equal("Husker", @bear1.inspect_stomach)
+    #This function only works 1/6 times run.
   end
 
   def test_bear_roar

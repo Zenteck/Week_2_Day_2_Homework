@@ -20,4 +20,10 @@ class Bear
     return "Rargh!"
   end
 
+  def inspect_stomach
+    for fish in @stomach
+      return fish.name
+    end
+  end
+
 end
